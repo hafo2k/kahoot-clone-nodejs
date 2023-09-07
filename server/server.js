@@ -18,7 +18,7 @@ var players = new Players();
 //Mongodb setup
 var MongoClient = require('mongodb').MongoClient;
 var mongoose = require('mongoose');
-var url = "mongodb://localhost:27017/";
+var url = "mongodb+srv://hafo:123@cluster0.bsppl0j.mongodb.net/";
 
 
 
@@ -415,11 +415,11 @@ io.on('connection', (socket) => {
                         }
                         
                         io.to(game.pin).emit('GameOver', {
-                            num1: first.name,
-                            num2: second.name,
-                            num3: third.name,
-                            num4: fourth.name,
-                            num5: fifth.name
+                            num1: [first.name, , first.score],
+                            num2: [second.name, , second.score],
+                            num3: [third.name, , third.score],
+                            num4: [fourth.name, , fourth.score],
+                            num5: [fifth.name, , fifth.score]
                         });
                     }
                 });
